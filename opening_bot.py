@@ -57,6 +57,27 @@ def too_easy(b, mv):
     return b.is_capture(mv) or b.gives_check(mv) or mv.promotion is not None or b.is_check()
 
 
+VAL = {chess.PAWN: 1, chess.KNIGHT: 3, chess.BISHOP: 3, chess.ROOK: 5, chess.QUEEN: 9, chess.KING: 99}
+
+
+def reaction_move(b, mv):
+    """True if the best move just answers an attack: the moved piece is attacked by a cheaper (or equal) piece."""
+    pc = b.piece_at(mv.from_square)
+    if not pc or pc.piece_type in (chess.KING, chess.PAWN): return False
+    for sq in b.attackers(not b.turn, mv.from_square):
+        if VAL[b.piece_at(sq).piece_type] <= VAL[pc.piece_type]: return True
+    return False
+
+
+def has_threat(eng, b, best):
+    """Pass the move (null move). If the opponent then wins a lot, there is a direct threat: a 'reaction' exercise."""
+    if b.is_check(): return True
+    n = b.copy(); n.push(chess.Move.null())
+    info = eng.analyse(n, chess.engine.Limit(time=1.5))
+    opp = info["score"].pov(n.turn).score(mate_score=10000)            # opponent's view after my pass
+    return best - (-opp) >= 120                                       # I lose 1.2+ pawns if I do nothing
+
+
 def judge(eng, b, secs):
     infos = eng.analyse(b, chess.engine.Limit(time=secs), multipv=2)
     if len(infos) < 2 or "pv" not in infos[0] or "pv" not in infos[1]: return None
@@ -75,7 +96,7 @@ def find(eng, cands, seen, deadline, want):
         if not f or abs(f[0]) > 9000: continue
         best, second, mv = f
         if not (LO <= best <= HI) or best - second < GAP or abs(best - q[0]) > 60: continue
-        if too_easy(b, mv): continue
+        if too_easy(b, mv) or reaction_move(b, mv) or has_threat(eng, b, best): continue   # deep exercises only: no retreats, no answers to threats
         gap = (best - second) / 100
         kind = "equality" if best <= 30 else "better"
         stm = "w" if b.turn else "b"
