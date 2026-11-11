@@ -18,11 +18,20 @@ jobs:
         run: |
           pip install chess
           sudo mkdir -p /usr/games
-          curl -fL --retry 3 -o sf.tar https://github.com/official-stockfish/Stockfish/releases/latest/download/stockfish-ubuntu-x86-64-avx2.tar
-          tar xf sf.tar
-          sudo cp stockfish/stockfish-ubuntu-x86-64-avx2 /usr/games/stockfish
+          URL=$(curl -fsSL https://api.github.com/repos/official-stockfish/Stockfish/releases/latest | python3 -c "import json,sys; a=json.load(sys.stdin)['assets']; c=[x['browser_download_url'] for x in a if 'ubuntu' in x['name'] and 'x86-64-avx2' in x['name']]; print(c[0] if c else '')")
+          echo "URL=$URL"
+          if [ -n "$URL" ]; then
+            curl -fL --retry 3 -o sf.pkg "$URL"
+            mkdir sfx
+            tar xf sf.pkg -C sfx || unzip -q sf.pkg -d sfx
+            BIN=$(find sfx -type f -name 'stockfish*' -perm /111 | head -1)
+            sudo cp "$BIN" /usr/games/stockfish
+          else
+            sudo apt-get update -y
+            sudo apt-get install -y stockfish
+          fi
           sudo chmod +x /usr/games/stockfish
-          echo "go depth 1" | /usr/games/stockfish | head -3
+          echo "uci" | /usr/games/stockfish | head -2
       - run: python opening_bot.py
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
