@@ -9,7 +9,7 @@ concurrency: openings
 jobs:
   run:
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -18,7 +18,16 @@ jobs:
         run: |
           pip install chess
           sudo mkdir -p /usr/games
-          URL=$(curl -fsSL https://api.github.com/repos/official-stockfish/Stockfish/releases/latest | python3 -c "import json,sys; a=json.load(sys.stdin)['assets']; c=[x['browser_download_url'] for x in a if 'ubuntu' in x['name'] and 'x86-64-avx2' in x['name']]; print(c[0] if c else '')")
+          python3 - <<'PY' > url.txt
+          import json, urllib.request
+          rels = json.load(urllib.request.urlopen("https://api.github.com/repos/official-stockfish/Stockfish/releases?per_page=15"))
+          for r in rels:
+              for a in r["assets"]:
+                  n = a["name"].lower()
+                  if "avx2" in n and ("ubuntu" in n or "linux" in n) and "vnni" not in n and "avx512" not in n:
+                      print(a["browser_download_url"]); raise SystemExit
+          PY
+          URL=$(cat url.txt)
           echo "URL=$URL"
           if [ -n "$URL" ]; then
             curl -fL --retry 3 -o sf.pkg "$URL"
@@ -27,8 +36,13 @@ jobs:
             BIN=$(find sfx -type f -name 'stockfish*' -perm /111 | head -1)
             sudo cp "$BIN" /usr/games/stockfish
           else
-            sudo apt-get update -y
-            sudo apt-get install -y stockfish
+            echo "No ready binary found: building from source"
+            git clone --depth 1 https://github.com/official-stockfish/Stockfish.git sfsrc
+            cd sfsrc/src
+            make -j4 net
+            make -j4 build ARCH=x86-64-avx2
+            sudo cp stockfish /usr/games/stockfish
+            cd ../..
           fi
           sudo chmod +x /usr/games/stockfish
           echo "uci" | /usr/games/stockfish | head -2
