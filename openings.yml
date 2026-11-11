@@ -1,0 +1,28 @@
+name: openings
+on:
+  schedule:
+    - cron: "7 * * * *"        # every hour
+  workflow_dispatch:           # the "Run workflow" button
+permissions:
+  contents: write
+concurrency: openings
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: sudo apt-get update -y && sudo apt-get install -y stockfish && pip install chess
+      - run: python opening_bot.py
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      - run: |
+          git config user.name "opening-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add bank.json state.json
+          git commit -m "new positions" || exit 0
+          git pull --rebase -q || true
+          git push
