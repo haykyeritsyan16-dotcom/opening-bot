@@ -8,13 +8,21 @@ permissions:
 concurrency: openings
 jobs:
   run:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
-      - run: sudo apt-get update -y && sudo apt-get install -y stockfish && pip install chess
+      - name: Install Stockfish and chess library
+        run: |
+          pip install chess
+          sudo mkdir -p /usr/games
+          curl -fL --retry 3 -o sf.tar https://github.com/official-stockfish/Stockfish/releases/latest/download/stockfish-ubuntu-x86-64-avx2.tar
+          tar xf sf.tar
+          sudo cp stockfish/stockfish-ubuntu-x86-64-avx2 /usr/games/stockfish
+          sudo chmod +x /usr/games/stockfish
+          echo "go depth 1" | /usr/games/stockfish | head -3
       - run: python opening_bot.py
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
