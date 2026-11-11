@@ -4,11 +4,11 @@ import chess, chess.engine, chess.pgn, chess.svg, io, json, os, random, sys, tim
 import urllib.request, urllib.parse
 
 SF = os.environ.get("STOCKFISH", "/usr/games/stockfish")
-BUDGET = float(os.environ.get("TIME_BUDGET_MIN", "9")) * 60      # minutes of searching per run
-WANT = int(os.environ.get("WANT", "6"))                           # new positions per run
+BUDGET = float(os.environ.get("TIME_BUDGET_MIN", "17")) * 60      # minutes of searching per run
+WANT = int(os.environ.get("WANT", "12"))                           # new positions per run
 TZ = int(os.environ.get("LOCAL_UTC_OFFSET", "4"))                 # Armenia = UTC+4
 QUIET = (23, 8)                                                   # no Telegram from 23:00 to 08:00 local
-BANK_MAX = 400
+BANK_MAX = 600
 USERS = ["DrNykterstein", "nihalsarin2004", "penguingim1", "Fins", "LyonBeast", "alireza2003", "Msb2",
          "Zhigalko_Sergei", "GMWSO", "opperwezen", "RebeccaHarris", "AnishGiri", "Arka50", "chessbrahs"]
 LO, HI, GAP = int(os.environ.get("LO","-30")), int(os.environ.get("HI","70")), int(os.environ.get("GAP","55"))                                         # centipawns, same rules as the app
@@ -22,9 +22,9 @@ def http(url, data=None, timeout=60):
 
 def games_from_lichess():
     out = []
-    for u in random.sample(USERS, 3):
+    for u in random.sample(USERS, 6):
         try:
-            t = http("https://lichess.org/api/games/user/%s?max=40&rated=true&perfType=classical,rapid,blitz&moves=true&tags=true&clocks=false&evals=false&opening=false" % u).decode("utf8", "ignore")
+            t = http("https://lichess.org/api/games/user/%s?max=60&rated=true&perfType=classical,rapid,blitz&moves=true&tags=true&clocks=false&evals=false&opening=false" % u).decode("utf8", "ignore")
             f = io.StringIO(t)
             while True:
                 g = chess.pgn.read_game(f)
@@ -40,7 +40,7 @@ def candidates(games):
     for g in games:
         moves = list(g.mainline_moves())
         if len(moves) < 30: continue
-        for ply in random.sample(range(8, 25), 4):                    # a few different moments of each game
+        for ply in random.sample(range(8, 25), 6):                    # a few different moments of each game
             b = g.board()
             for m in moves[:ply]: b.push(m)
             if b.is_check() or b.is_game_over(): continue
@@ -90,9 +90,9 @@ def find(eng, cands, seen, deadline, want):
         if time.time() > deadline or len(found) >= want: break
         key = " ".join(b.fen().split(" ")[:4])
         if key in seen: continue
-        q = judge(eng, b, 0.4)                                        # quick look
+        q = judge(eng, b, 0.3)                                        # quick look
         if not q or not (LO - 25 <= q[0] <= HI + 25) or q[0] - q[1] < GAP - 30: continue
-        f = judge(eng, b, 6)                                          # careful look
+        f = judge(eng, b, 4)                                          # careful look
         if not f or abs(f[0]) > 9000: continue
         best, second, mv = f
         if not (LO <= best <= HI) or best - second < GAP or abs(best - q[0]) > 60: continue
