@@ -1,6 +1,6 @@
 """Hourly opening-exercise bot. Finds 'only move' opening positions with Stockfish,
 saves them to bank.json (the phone app reads it) and sends one to Telegram."""
-import chess, chess.engine, chess.pgn, io, json, os, random, sys, time, datetime
+import chess, chess.engine, chess.pgn, chess.svg, io, json, os, random, sys, time, datetime
 import urllib.request, urllib.parse
 
 SF = os.environ.get("STOCKFISH", "/usr/games/stockfish")
@@ -107,18 +107,48 @@ def chat_id(token):
     return None
 
 
+def board_png(fen, white_bottom):
+    try:
+        import cairosvg
+    except Exception:
+        import subprocess
+        subprocess.run([sys.executable, "-m", "pip", "install", "-q", "cairosvg"], check=False)
+        import cairosvg
+    b = chess.Board(fen)
+    svg = chess.svg.board(b, orientation=chess.WHITE if white_bottom else chess.BLACK, size=640, coordinates=True)
+    return cairosvg.svg2png(bytestring=svg.encode())
+
+
+def send_photo(token, cid, png, caption):
+    bd = "----openingbot7d3f"
+    parts = []
+    for k, v in (("chat_id", cid), ("caption", caption), ("parse_mode", "HTML")):
+        parts.append(("--%s\r\nContent-Disposition: form-data; name=\"%s\"\r\n\r\n%s\r\n" % (bd, k, v)).encode())
+    parts.append(("--%s\r\nContent-Disposition: form-data; name=\"photo\"; filename=\"board.png\"\r\nContent-Type: image/png\r\n\r\n" % bd).encode())
+    parts.append(png); parts.append(("\r\n--%s--\r\n" % bd).encode())
+    req = urllib.request.Request("https://api.telegram.org/bot%s/sendPhoto" % token, data=b"".join(parts),
+                                 headers={"Content-Type": "multipart/form-data; boundary=" + bd, "User-Agent": "opening-bot"})
+    return json.loads(urllib.request.urlopen(req, timeout=60).read())
+
+
 def send(token, cid, p):
     side = "White" if p["my"] == "w" else "Black"
-    fenq = urllib.parse.quote(p["fen"], safe="")
-    img = "https://lichess1.org/export/fen.png?fen=%s&color=%s&theme=brown&piece=cburnett" % (fenq, "white" if p["my"] == "w" else "black")
     link = "https://lichess.org/analysis/" + p["fen"].replace(" ", "_")
-    cap = ("📖 <b>Opening • %s to move</b>\n%s.\n\n<tg-spoiler>Answer: %s (%+.2f). The next best move is %.2f worse.</tg-spoiler>\n\n<a href=\"%s\">Analyse on Lichess</a>"
+    cap = ("📖 <b>Opening • %s to move</b>\n%s.\n\nTap to see the answer:\n<tg-spoiler>Answer: %s (%+.2f). The next best move is %.2f worse.</tg-spoiler>\n\n<a href=\"%s\">Analyse on Lichess</a>"
            % (side, p["crit"].split(". ")[0].capitalize(), p["answer_san"], p["answer_cp"] / 100, p["gap"], link))
     try:
-        tg(token, "sendPhoto", chat_id=cid, photo=img, caption=cap, parse_mode="HTML")
+        send_photo(token, cid, board_png(p["fen"], p["my"] == "w"), cap)
+        return
     except Exception as e:
-        print("photo failed, sending text:", e)
-        tg(token, "sendMessage", chat_id=cid, text=cap + "\n\nFEN: " + p["fen"], parse_mode="HTML")
+        print("own board picture failed:", e)
+    try:
+        fenq = urllib.parse.quote(p["fen"], safe="")
+        img = "https://lichess1.org/export/fen.png?fen=%s&color=%s" % (fenq, "white" if p["my"] == "w" else "black")
+        tg(token, "sendPhoto", chat_id=cid, photo=img, caption=cap, parse_mode="HTML")
+        return
+    except Exception as e:
+        print("lichess picture failed:", e)
+    tg(token, "sendMessage", chat_id=cid, text=cap + "\n\nFEN: " + p["fen"], parse_mode="HTML", disable_web_page_preview="true")
 
 
 def main():
