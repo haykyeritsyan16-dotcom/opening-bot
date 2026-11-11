@@ -106,8 +106,27 @@
 "answer_san": "a6",
 "answer_cp": -9,
 "gap": 0.59,
-"sent": false,
+"sent": true,
 "v": 2,
 "added": 1794417455
+},
+{
+"id": "g:r2qk2r/1p1bbpp1/p3p2p/2p1P2P/P3pB2/2P1P3/1P3PP1/R2QKB1R_w_KQkq_-",
+"fen": "r2qk2r/1p1bbpp1/p3p2p/2p1P2P/P3pB2/2P1P3/1P3PP1/R2QKB1R w KQkq - 0 13",
+"my": "w",
+"me_cp": 40,
+"no": 13,
+"opp": "penguingim1 – whiteprocess",
+"date": "Lichess",
+"bc": true,
+"kind": "opening",
+"ver": true,
+"crit": "only one move keeps you better. The next best move is 0.59 worse. Losing 0.3 or more counts as a miss.",
+"answer_san": "Qg4",
+"answer_cp": 40,
+"gap": 0.59,
+"sent": false,
+"v": 2,
+"added": 1794420442
 }
 ]
