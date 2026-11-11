@@ -106,7 +106,7 @@ def find(eng, cands, seen, deadline, want):
             "bc": True, "kind": "opening", "ver": True,
             "crit": ("only one move keeps the equality" if kind == "equality" else "only one move keeps you better") +
                     ". The next best move is %.2f worse. Losing 0.3 or more counts as a miss." % gap,
-            "answer_san": b.san(mv), "answer_cp": best, "gap": round(gap, 2), "sent": False, "added": int(time.time()),
+            "answer_san": b.san(mv), "answer_cp": best, "gap": round(gap, 2), "sent": False, "v": 2, "added": int(time.time()),
         })
         seen.add(key)
         print("found:", b.fen(), b.san(mv), best, "gap", gap)
@@ -175,6 +175,7 @@ def send(token, cid, p):
 def main():
     bank = json.load(open("bank.json")) if os.path.exists("bank.json") else []
     state = json.load(open("state.json")) if os.path.exists("state.json") else {}
+    bank = [x for x in bank if x.get("v", 1) >= 2 or x.get("sent")]       # drop old positions made before the "no reactions" rule
     seen = set(" ".join(x["fen"].split(" ")[:4]) for x in bank)
     if len(sys.argv) > 2 and sys.argv[1] == "--pgn":                  # offline test
         f = open(sys.argv[2]); games = []
