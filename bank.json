@@ -451,5 +451,24 @@
 "sent": false,
 "v": 2,
 "added": 1794513547
+},
+{
+"id": "g:r3kb1r/ppqn1ppp/2p1p1b1/2p1P3/5BP1/2NP1N1P/PPP1QP2/R3K2R_b_KQkq_-",
+"fen": "r3kb1r/ppqn1ppp/2p1p1b1/2p1P3/5BP1/2NP1N1P/PPP1QP2/R3K2R b KQkq - 1 11",
+"my": "b",
+"me_cp": -3,
+"no": 11,
+"opp": "RebeccaHarris – Zhigalko_Sergei",
+"date": "Lichess",
+"bc": true,
+"kind": "opening",
+"ver": true,
+"crit": "only one move keeps the equality. The next best move is 0.59 worse. Losing 0.3 or more counts as a miss.",
+"answer_san": "c4",
+"answer_cp": -3,
+"gap": 0.59,
+"sent": false,
+"v": 2,
+"added": 1794517383
 }
 ]
