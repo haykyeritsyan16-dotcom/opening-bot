@@ -318,5 +318,43 @@
 "sent": true,
 "v": 2,
 "added": 1794489573
+},
+{
+"id": "g:rnbq1rk1/ppp1bppp/8/3n4/4N3/3P1N2/PPPBQPPP/R3KB1R_b_KQ_-",
+"fen": "rnbq1rk1/ppp1bppp/8/3n4/4N3/3P1N2/PPPBQPPP/R3KB1R b KQ - 1 8",
+"my": "b",
+"me_cp": 15,
+"no": 8,
+"opp": "alireza2003 – dr_xStranger",
+"date": "Lichess",
+"bc": true,
+"kind": "opening",
+"ver": true,
+"crit": "only one move keeps the equality. The next best move is 0.76 worse. Losing 0.3 or more counts as a miss.",
+"answer_san": "Re8",
+"answer_cp": 15,
+"gap": 0.76,
+"sent": false,
+"v": 2,
+"added": 1794502965
+},
+{
+"id": "g:r3k2r/pp1nbppp/1qp1pn2/3p4/3P1B2/2NPPN2/PPQ2PPP/R4RK1_b_kq_-",
+"fen": "r3k2r/pp1nbppp/1qp1pn2/3p4/3P1B2/2NPPN2/PPQ2PPP/R4RK1 b kq - 5 10",
+"my": "b",
+"me_cp": 38,
+"no": 10,
+"opp": "Night-King96 – nihalsarin2004",
+"date": "Lichess",
+"bc": true,
+"kind": "opening",
+"ver": true,
+"crit": "only one move keeps you better. The next best move is 0.57 worse. Losing 0.3 or more counts as a miss.",
+"answer_san": "Nh5",
+"answer_cp": 38,
+"gap": 0.57,
+"sent": false,
+"v": 2,
+"added": 1794503065
 }
 ]
