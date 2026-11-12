@@ -261,5 +261,24 @@
 "sent": true,
 "v": 2,
 "added": 1794463981
+},
+{
+"id": "g:r2qr1k1/1p2bppp/p1n1pn2/2pp3b/P3P3/1BPP1N1P/1P1NQPP1/R1B1R1K1_w_-_-",
+"fen": "r2qr1k1/1p2bppp/p1n1pn2/2pp3b/P3P3/1BPP1N1P/1P1NQPP1/R1B1R1K1 w - - 2 13",
+"my": "w",
+"me_cp": 21,
+"no": 13,
+"opp": "Arka50 – WhiteRabbit00735",
+"date": "Lichess",
+"bc": true,
+"kind": "opening",
+"ver": true,
+"crit": "only one move keeps the equality. The next best move is 0.82 worse. Losing 0.3 or more counts as a miss.",
+"answer_san": "g4",
+"answer_cp": 21,
+"gap": 0.82,
+"sent": true,
+"v": 2,
+"added": 1794481290
 }
 ]
