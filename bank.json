@@ -356,5 +356,24 @@
 "sent": false,
 "v": 2,
 "added": 1794503065
+},
+{
+"id": "g:r1bq1rk1/ppp1ppbp/2np1np1/8/2PPP3/2N1BP2/PPQ3PP/R3KBNR_b_KQ_-",
+"fen": "r1bq1rk1/ppp1ppbp/2np1np1/8/2PPP3/2N1BP2/PPQ3PP/R3KBNR b KQ - 2 7",
+"my": "b",
+"me_cp": 49,
+"no": 7,
+"opp": "Artois_Tactic1995 – AnishGiri",
+"date": "Lichess",
+"bc": true,
+"kind": "opening",
+"ver": true,
+"crit": "only one move keeps you better. The next best move is 0.93 worse. Losing 0.3 or more counts as a miss.",
+"answer_san": "e5",
+"answer_cp": 49,
+"gap": 0.93,
+"sent": false,
+"v": 2,
+"added": 1794506761
 }
 ]
