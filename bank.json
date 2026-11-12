@@ -470,5 +470,43 @@
 "sent": false,
 "v": 2,
 "added": 1794517383
+},
+{
+"id": "g:r1bqkb1r/ppp2ppp/2n1p3/3nP3/8/5NQ1/PPP2PPP/RNB1KB1R_b_KQkq_-",
+"fen": "r1bqkb1r/ppp2ppp/2n1p3/3nP3/8/5NQ1/PPP2PPP/RNB1KB1R b KQkq - 0 7",
+"my": "b",
+"me_cp": 0,
+"no": 7,
+"opp": "Koshulyan_Egor – RebeccaHarris",
+"date": "Lichess",
+"bc": true,
+"kind": "opening",
+"ver": true,
+"crit": "only one move keeps the equality. The next best move is 0.64 worse. Losing 0.3 or more counts as a miss.",
+"answer_san": "Ndb4",
+"answer_cp": 0,
+"gap": 0.64,
+"sent": false,
+"v": 2,
+"added": 1794520778
+},
+{
+"id": "g:r1b1k2r/pppnqpb1/3pp2p/6p1/2NPP3/2PB2P1/PP1N1PP1/R2QK2R_b_KQkq_-",
+"fen": "r1b1k2r/pppnqpb1/3pp2p/6p1/2NPP3/2PB2P1/PP1N1PP1/R2QK2R b KQkq - 0 12",
+"my": "b",
+"me_cp": -11,
+"no": 12,
+"opp": "AngelitoRT – DrNykterstein",
+"date": "Lichess",
+"bc": true,
+"kind": "opening",
+"ver": true,
+"crit": "only one move keeps the equality. The next best move is 0.68 worse. Losing 0.3 or more counts as a miss.",
+"answer_san": "c5",
+"answer_cp": -11,
+"gap": 0.68,
+"sent": false,
+"v": 2,
+"added": 1794520930
 }
 ]
