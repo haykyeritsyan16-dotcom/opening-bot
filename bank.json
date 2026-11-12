@@ -125,7 +125,7 @@
 "answer_san": "Qg4",
 "answer_cp": 40,
 "gap": 0.59,
-"sent": false,
+"sent": true,
 "v": 2,
 "added": 1794420442
 },
@@ -144,7 +144,7 @@
 "answer_san": "Nc3",
 "answer_cp": 10,
 "gap": 0.55,
-"sent": false,
+"sent": true,
 "v": 2,
 "added": 1794423843
 },
@@ -163,7 +163,7 @@
 "answer_san": "g5",
 "answer_cp": 69,
 "gap": 0.62,
-"sent": false,
+"sent": true,
 "v": 2,
 "added": 1794438279
 },
