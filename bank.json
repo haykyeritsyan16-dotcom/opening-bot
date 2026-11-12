@@ -182,7 +182,7 @@
 "answer_san": "Nd7",
 "answer_cp": -23,
 "gap": 0.63,
-"sent": false,
+"sent": true,
 "v": 2,
 "added": 1794438409
 },
@@ -204,5 +204,24 @@
 "sent": false,
 "v": 2,
 "added": 1794452699
+},
+{
+"id": "g:r1bqk2r/1p1pnpbp/p1n3p1/4p3/2P1P3/3Q1N2/PB3PPP/RN2RBK1_b_kq_-",
+"fen": "r1bqk2r/1p1pnpbp/p1n3p1/4p3/2P1P3/3Q1N2/PB3PPP/RN2RBK1 b kq - 0 12",
+"my": "b",
+"me_cp": 12,
+"no": 12,
+"opp": "Sicilian_training – AnishGiri",
+"date": "Lichess",
+"bc": true,
+"kind": "opening",
+"ver": true,
+"crit": "only one move keeps the equality. The next best move is 0.63 worse. Losing 0.3 or more counts as a miss.",
+"answer_san": "d6",
+"answer_cp": 12,
+"gap": 0.63,
+"sent": false,
+"v": 2,
+"added": 1794460390
 }
 ]
