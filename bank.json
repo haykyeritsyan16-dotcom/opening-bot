@@ -679,5 +679,24 @@
 "sent": false,
 "v": 2,
 "added": 1794589787
+},
+{
+"id": "g:r1bqr1k1/ppp2ppp/3p1nn1/4p3/2PP4/PP2PN2/1BQ1BPPP/R3K2R_b_KQ_-",
+"fen": "r1bqr1k1/ppp2ppp/3p1nn1/4p3/2PP4/PP2PN2/1BQ1BPPP/R3K2R b KQ - 2 12",
+"my": "b",
+"me_cp": 26,
+"no": 12,
+"opp": "Samid2002 – Zhigalko_Sergei",
+"date": "Lichess",
+"bc": true,
+"kind": "opening",
+"ver": true,
+"crit": "only one move keeps the equality. The next best move is 0.56 worse. Losing 0.3 or more counts as a miss.",
+"answer_san": "e4",
+"answer_cp": 26,
+"gap": 0.56,
+"sent": false,
+"v": 2,
+"added": 1794599823
 }
 ]
