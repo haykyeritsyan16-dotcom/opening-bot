@@ -622,5 +622,24 @@
 "sent": false,
 "v": 2,
 "added": 1794554579
+},
+{
+"id": "g:r1bqrnk1/ppp2ppp/3p1n2/4p3/2PP4/PP2PN2/2Q1BPPP/R1B1K2R_b_KQ_-",
+"fen": "r1bqrnk1/ppp2ppp/3p1n2/4p3/2PP4/PP2PN2/2Q1BPPP/R1B1K2R b KQ - 0 11",
+"my": "b",
+"me_cp": 40,
+"no": 11,
+"opp": "Samid2002 – Zhigalko_Sergei",
+"date": "Lichess",
+"bc": true,
+"kind": "opening",
+"ver": true,
+"crit": "only one move keeps you better. The next best move is 0.58 worse. Losing 0.3 or more counts as a miss.",
+"answer_san": "e4",
+"answer_cp": 40,
+"gap": 0.58,
+"sent": false,
+"v": 2,
+"added": 1794571731
 }
 ]
