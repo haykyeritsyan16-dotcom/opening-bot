@@ -774,5 +774,24 @@
 "sent": false,
 "v": 2,
 "added": 1794607399
+},
+{
+"id": "g:r1bq1rk1/p2nbppp/2p2n2/3p2B1/Np1P4/3B4/PPPQ1PPP/2K1R1NR_w_-_-",
+"fen": "r1bq1rk1/p2nbppp/2p2n2/3p2B1/Np1P4/3B4/PPPQ1PPP/2K1R1NR w - - 2 11",
+"my": "w",
+"me_cp": 60,
+"no": 11,
+"opp": "Sulfur64 – msb2",
+"date": "Lichess",
+"bc": true,
+"kind": "opening",
+"ver": true,
+"crit": "only one move keeps you better. The next best move is 0.60 worse. Losing 0.3 or more counts as a miss.",
+"answer_san": "Nf3",
+"answer_cp": 60,
+"gap": 0.6,
+"sent": false,
+"v": 2,
+"added": 1794609974
 }
 ]
