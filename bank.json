@@ -831,5 +831,24 @@
 "sent": false,
 "v": 2,
 "added": 1794639903
+},
+{
+"id": "g:r1bqkb1r/pp2pp1p/2np1np1/8/Q3P3/2N2N2/PPP2PPP/R1B1KB1R_w_KQkq_-",
+"fen": "r1bqkb1r/pp2pp1p/2np1np1/8/Q3P3/2N2N2/PPP2PPP/R1B1KB1R w KQkq - 0 7",
+"my": "w",
+"me_cp": 43,
+"no": 7,
+"opp": "AmbartsumianTyhran – RebeccaHarris",
+"date": "Lichess",
+"bc": true,
+"kind": "opening",
+"ver": true,
+"crit": "only one move keeps you better. The next best move is 0.55 worse. Losing 0.3 or more counts as a miss.",
+"answer_san": "e5",
+"answer_cp": 43,
+"gap": 0.55,
+"sent": false,
+"v": 2,
+"added": 1794653180
 }
 ]
