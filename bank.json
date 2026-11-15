@@ -1021,5 +1021,24 @@
 "sent": false,
 "v": 2,
 "added": 1794733348
+},
+{
+"id": "g:r3kb1r/pp1bnppp/1qn1p3/3pP2P/3P2P1/5N2/PP3P2/RNBQKB1R_b_KQkq_-",
+"fen": "r3kb1r/pp1bnppp/1qn1p3/3pP2P/3P2P1/5N2/PP3P2/RNBQKB1R b KQkq - 0 9",
+"my": "b",
+"me_cp": 17,
+"no": 9,
+"opp": "Zhigalko_Sergei – Kirill_Klyukin",
+"date": "Lichess",
+"bc": true,
+"kind": "opening",
+"ver": true,
+"crit": "only one move keeps the equality. The next best move is 0.62 worse. Losing 0.3 or more counts as a miss.",
+"answer_san": "f6",
+"answer_cp": 17,
+"gap": 0.62,
+"sent": false,
+"v": 2,
+"added": 1794747910
 }
 ]
