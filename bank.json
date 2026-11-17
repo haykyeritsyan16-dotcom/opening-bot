@@ -1135,5 +1135,24 @@
 "sent": false,
 "v": 2,
 "added": 1794881943
+},
+{
+"id": "g:r1bqkb1r/ppp3pp/2n2n2/3ppp2/8/3P1NP1/PPP1PPBP/RNBQ1RK1_w_kq_-",
+"fen": "r1bqkb1r/ppp3pp/2n2n2/3ppp2/8/3P1NP1/PPP1PPBP/RNBQ1RK1 w kq - 1 6",
+"my": "w",
+"me_cp": 24,
+"no": 6,
+"opp": "gmwso – blitzfix",
+"date": "Lichess",
+"bc": true,
+"kind": "opening",
+"ver": true,
+"crit": "only one move keeps the equality. The next best move is 0.63 worse. Losing 0.3 or more counts as a miss.",
+"answer_san": "c4",
+"answer_cp": 24,
+"gap": 0.63,
+"sent": false,
+"v": 2,
+"added": 1794935364
 }
 ]
