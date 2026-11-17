@@ -1116,5 +1116,24 @@
 "sent": false,
 "v": 2,
 "added": 1794847797
+},
+{
+"id": "g:r1bq1rk1/pp2n1pp/2n1pp2/3p4/3P4/2PB1NP1/PP1N1PP1/R2Q1RK1_b_-_-",
+"fen": "r1bq1rk1/pp2n1pp/2n1pp2/3p4/3P4/2PB1NP1/PP1N1PP1/R2Q1RK1 b - - 0 11",
+"my": "b",
+"me_cp": -5,
+"no": 11,
+"opp": "Bardiya___Daneshvar – msb2",
+"date": "Lichess",
+"bc": true,
+"kind": "opening",
+"ver": true,
+"crit": "only one move keeps the equality. The next best move is 0.68 worse. Losing 0.3 or more counts as a miss.",
+"answer_san": "e5",
+"answer_cp": -5,
+"gap": 0.68,
+"sent": false,
+"v": 2,
+"added": 1794881943
 }
 ]
