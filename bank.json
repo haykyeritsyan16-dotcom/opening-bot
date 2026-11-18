@@ -1211,5 +1211,24 @@
 "sent": false,
 "v": 2,
 "added": 1794986431
+},
+{
+"id": "g:rnbqr1k1/ppp2pbp/3p1np1/8/2PNP3/2N1BP2/PP2B1PP/R2QK2R_b_KQ_-",
+"fen": "rnbqr1k1/ppp2pbp/3p1np1/8/2PNP3/2N1BP2/PP2B1PP/R2QK2R b KQ - 0 9",
+"my": "b",
+"me_cp": -18,
+"no": 9,
+"opp": "msb2 – Shield_Winner",
+"date": "Lichess",
+"bc": true,
+"kind": "opening",
+"ver": true,
+"crit": "only one move keeps the equality. The next best move is 0.57 worse. Losing 0.3 or more counts as a miss.",
+"answer_san": "c6",
+"answer_cp": -18,
+"gap": 0.57,
+"sent": false,
+"v": 2,
+"added": 1795028690
 }
 ]
