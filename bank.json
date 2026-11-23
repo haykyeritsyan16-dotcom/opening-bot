@@ -1325,5 +1325,24 @@
 "sent": false,
 "v": 2,
 "added": 1795293885
+},
+{
+"id": "g:r1bq1rk1/1pp2pbp/3p2p1/p1nPp2n/2P1P3/2N2NPP/PPB2P2/R1BQK2R_b_KQ_-",
+"fen": "r1bq1rk1/1pp2pbp/3p2p1/p1nPp2n/2P1P3/2N2NPP/PPB2P2/R1BQK2R b KQ - 0 11",
+"my": "b",
+"me_cp": 37,
+"no": 11,
+"opp": "DrNykterstein – Sharkfang",
+"date": "Lichess",
+"bc": true,
+"kind": "opening",
+"ver": true,
+"crit": "only one move keeps you better. The next best move is 0.58 worse. Losing 0.3 or more counts as a miss.",
+"answer_san": "f5",
+"answer_cp": 37,
+"gap": 0.58,
+"sent": false,
+"v": 2,
+"added": 1795471526
 }
 ]
