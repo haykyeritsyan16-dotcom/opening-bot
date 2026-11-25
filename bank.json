@@ -1344,5 +1344,24 @@
 "sent": false,
 "v": 2,
 "added": 1795471526
+},
+{
+"id": "g:r1b1kb1r/1pp1pppp/p2q1n2/3P4/2B5/2N5/PPP2PPP/R1BQK2R_b_KQkq_-",
+"fen": "r1b1kb1r/1pp1pppp/p2q1n2/3P4/2B5/2N5/PPP2PPP/R1BQK2R b KQkq - 2 9",
+"my": "b",
+"me_cp": 61,
+"no": 9,
+"opp": "Zhigalko_Sergei – DrNykterstein",
+"date": "Lichess",
+"bc": true,
+"kind": "opening",
+"ver": true,
+"crit": "only one move keeps you better. The next best move is 0.56 worse. Losing 0.3 or more counts as a miss.",
+"answer_san": "b5",
+"answer_cp": 61,
+"gap": 0.56,
+"sent": false,
+"v": 2,
+"added": 1795619195
 }
 ]
